@@ -19,7 +19,7 @@ header{background:white}.topline{background:#282675}.dark{background:#282675}.li
 .floating-social{position:fixed;right:max(24px,env(safe-area-inset-right));bottom:calc(24px + env(safe-area-inset-bottom));z-index:20;display:flex;flex-direction:column;gap:12px}
 .social-float{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;color:#fff;box-shadow:0 4px 16px #22225235;transition:transform .2s,box-shadow .2s}
 .social-float--instagram{background:linear-gradient(35deg,#f9a23b,#d62976 50%,#6b39c7)}
-.social-float--whatsapp{background:#168b48}
+.social-float--whatsapp{background:#25d366}
 .social-float:hover{transform:translateY(-3px);box-shadow:0 7px 22px #22225245}
 .social-float:focus-visible{outline:3px solid #282675;outline-offset:4px}
 footer{padding-bottom:170px}
