@@ -24,3 +24,19 @@ header{background:white}.topline{background:#282675}.dark{background:#282675}.li
 .social-float:focus-visible{outline:3px solid #282675;outline-offset:4px}
 footer{padding-bottom:170px}
 @media(max-width:720px){.floating-social{right:max(16px,env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom));gap:10px}.social-float{width:52px;height:52px}.catalogo-wrap{padding-bottom:160px}}
+
+/* Brand marquee: two identical groups make the loop seamless. */
+.brand-strip{padding:26px 0 30px;background:#fff;border-bottom:1px solid var(--line);overflow:hidden}
+.brand-strip-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;margin:0 5% 20px}
+.brand-strip h2{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.7px;text-transform:uppercase;line-height:1.5}
+.brand-marquee-toggle{flex-shrink:0;background:none;border:1px solid var(--line);border-radius:20px;color:var(--muted);padding:7px 12px;font-size:11px;cursor:pointer}
+.brand-marquee-window{overflow:hidden;mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)}
+.brand-marquee-track{display:flex;width:max-content;animation:brand-marquee 48s linear infinite}
+.brand-marquee-group{display:flex;flex-shrink:0;align-items:center}
+.brand-marquee-item{display:flex;align-items:center;justify-content:center;width:184px;height:72px;flex-shrink:0;padding:12px 24px}
+.brand-marquee-item img{display:block;width:136px;height:48px;object-fit:contain;filter:grayscale(1);opacity:.8}
+.brand-marquee-item img[src$="acer.svg"],.brand-marquee-item img[src$="amazon.svg"]{transform:scale(1.45)}
+.brand-strip:hover .brand-marquee-track,.brand-strip.is-paused .brand-marquee-track{animation-play-state:paused}
+@keyframes brand-marquee{to{transform:translateX(-50%)}}
+@media(max-width:720px){.brand-strip{padding:22px 0}.brand-strip-heading{align-items:flex-start;flex-direction:column;gap:12px}.brand-strip h2{max-width:230px;font-size:10px}.brand-marquee-item{width:152px;height:64px;padding:10px 22px}.brand-marquee-item img{width:108px;height:42px}}
+@media(prefers-reduced-motion:reduce){.brand-marquee-track{animation:none;width:100%}.brand-marquee-group{flex-wrap:wrap;justify-content:center;width:100%}.brand-marquee-group[aria-hidden="true"]{display:none}.brand-marquee-toggle{display:none}.brand-marquee-window{mask-image:none}}
