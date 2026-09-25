@@ -10,27 +10,33 @@ export default async function handler(request, response) {
     return response.status(200).json({ posts: [] });
   }
 
-  const baseUrl = userId
-    ? `https://graph.facebook.com/v23.0/${userId}/media`
-    : 'https://graph.instagram.com/v23.0/me/media';
-  const url = new URL(baseUrl);
-  url.searchParams.set('fields', FIELDS);
-  url.searchParams.set('limit', '5');
-  url.searchParams.set('access_token', token);
-
   try {
-    const instagramResponse = await fetch(url);
-    const payload = await instagramResponse.json();
+    const endpoints = [
+      userId && `https://graph.facebook.com/v23.0/${userId}/media`,
+      'https://graph.instagram.com/v23.0/me/media'
+    ].filter(Boolean);
 
-    if (!instagramResponse.ok) {
-      return response.status(200).json({ posts: [] });
+    for (const endpoint of endpoints) {
+      const url = new URL(endpoint);
+      url.searchParams.set('fields', FIELDS);
+      url.searchParams.set('limit', '5');
+      url.searchParams.set('access_token', token);
+
+      const instagramResponse = await fetch(url);
+      const payload = await instagramResponse.json();
+
+      if (!instagramResponse.ok) continue;
+
+      const posts = (payload.data || [])
+        .filter(post => post.media_url || post.thumbnail_url)
+        .slice(0, 5);
+
+      if (posts.length) {
+        return response.status(200).json({ posts });
+      }
     }
 
-    const posts = (payload.data || [])
-      .filter(post => post.media_url || post.thumbnail_url)
-      .slice(0, 5);
-
-    return response.status(200).json({ posts });
+    return response.status(200).json({ posts: [] });
   } catch (error) {
     return response.status(200).json({ posts: [] });
   }
