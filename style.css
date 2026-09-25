@@ -46,15 +46,11 @@ footer{padding-bottom:170px}
 .instagram-heading h2{font-size:34px}
 .instagram-heading>p{max-width:320px;margin:0;color:var(--muted);font-size:13px}
 .instagram-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.instagram-card{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:260px;overflow:hidden;border-radius:12px;background:#eeedf9;color:white;isolation:isolate}
-.instagram-card:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#22225205 15%,#222252d9 100%);z-index:1}
+.instagram-card{position:relative;display:block;min-height:260px;overflow:hidden;border-radius:12px;background:#eeedf9;color:white;isolation:isolate}
 .instagram-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .25s}
 .instagram-card:hover img{transform:scale(1.05)}
 .instagram-card span,.instagram-card strong,.instagram-card small{position:relative;z-index:2}
-.instagram-card span{align-self:flex-start;margin:14px;padding:7px 9px;border-radius:999px;background:#ffffffd9;color:#282675;font-size:10px;font-weight:700}
-.instagram-card strong{align-self:flex-end;margin:0 14px 16px;font-size:13px;line-height:1.45}
 .instagram-card--fallback{grid-column:span 5;display:grid;align-content:center;gap:10px;min-height:190px;padding:28px;background:linear-gradient(135deg,#282675,#403d93);color:white}
-.instagram-card--fallback:before{display:none}
 .instagram-card--fallback span{margin:0;width:max-content;color:#282675}
 .instagram-card--fallback strong{margin:0;font-family:Manrope,sans-serif;font-size:24px}
 .instagram-card--fallback small{max-width:420px;color:#ededff;line-height:1.6}

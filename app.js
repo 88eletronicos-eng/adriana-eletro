@@ -10,7 +10,7 @@ const renderInstagramPosts = posts => {
   instagramFeed.innerHTML = posts.slice(0, 5).map(post => {
     const media = post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url;
     const caption = (post.caption || 'Postagem da Adriana Eletro').replace(/[<>&"]/g, char => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[char])).slice(0, 120);
-    return `<a class="instagram-card" href="${post.permalink}" target="_blank" rel="noopener noreferrer"><img src="${media}" alt="${caption}" loading="lazy" decoding="async"><span>Instagram</span><strong>${caption}</strong></a>`;
+    return `<a class="instagram-card" href="${post.permalink}" target="_blank" rel="noopener noreferrer" aria-label="${caption}"><img src="${media}" alt="${caption}" loading="lazy" decoding="async"></a>`;
   }).join('');
 };
 
