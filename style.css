@@ -30,12 +30,13 @@ footer{padding-bottom:170px}
 .brand-strip-heading{margin:0 5% 20px}
 .brand-strip h2{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.7px;text-transform:uppercase;line-height:1.5}
 .brand-marquee-window{overflow:hidden;mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)}
-.brand-marquee-track{display:flex;width:max-content;animation:brand-marquee 48s linear infinite}
-.brand-marquee-group{display:flex;flex-shrink:0;align-items:center}
-.brand-marquee-item{display:flex;align-items:center;justify-content:center;width:184px;height:72px;flex-shrink:0;padding:12px 24px}
+.brand-marquee-track{display:flex;gap:0;width:max-content;animation:brand-marquee 58s linear infinite}
+.brand-marquee-group{display:flex;flex-shrink:0;align-items:center;gap:0}
+.brand-marquee-item{display:flex;align-items:center;justify-content:center;width:164px;height:72px;flex-shrink:0;padding:12px 14px}
 .brand-marquee-item img{display:block;width:136px;height:48px;object-fit:contain;filter:grayscale(1);opacity:.8}
 .brand-marquee-item img[src$="acer.svg"],.brand-marquee-item img[src$="amazon.svg"]{transform:scale(1.45)}
+.brand-marquee-item img[src$="logitech.svg"],.brand-marquee-item img[src$="sandisk.svg"],.brand-marquee-item img[src$="kingston.svg"]{transform:scale(1.15)}
 .brand-strip:hover .brand-marquee-track{animation-play-state:paused}
 @keyframes brand-marquee{to{transform:translateX(-50%)}}
-@media(max-width:720px){.brand-strip{padding:22px 0}.brand-strip h2{max-width:230px;font-size:10px}.brand-marquee-item{width:152px;height:64px;padding:10px 22px}.brand-marquee-item img{width:108px;height:42px}}
+@media(max-width:720px){.brand-strip{padding:22px 0}.brand-strip h2{max-width:230px;font-size:10px}.brand-marquee-item{width:132px;height:64px;padding:10px 12px}.brand-marquee-item img{width:108px;height:42px}}
 @media(prefers-reduced-motion:reduce){.brand-marquee-track{animation:none;width:100%}.brand-marquee-group{flex-wrap:wrap;justify-content:center;width:100%}.brand-marquee-group[aria-hidden="true"]{display:none}.brand-marquee-window{mask-image:none}}
